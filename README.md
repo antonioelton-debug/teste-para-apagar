@@ -7,4 +7,4 @@ Segunda alteração nova
 
 Mais uma alteração para teste
 
-Teste de conflito
+Teste de conflito Remoto
