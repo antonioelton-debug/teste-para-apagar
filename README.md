@@ -1,14 +1,3 @@
-Apenas teste
-Teste alteração no GitHub
+<h1 align="center"> Teste Git/GitHub </h1>
 
-Mais um teste de alteração
-
-Segunda alteração nova
-
-Mais uma alteração para teste
-
-Teste de conflito Remoto
-
-Nosso **primeiro exemplo** de trecho de texto no Markdown
-
-aqui tem uma [página de teste] (https://www.google.com/)
+![imagem de fundo](https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/C112/production/_108962494_image-1.jpg.webp)
