@@ -1,0 +1,146 @@
+<!-- Com certeza! Adicionar data-attributes é uma das melhores práticas em automação, pois separa as preocupações: o desenvolvedor pode mudar o CSS ou o ID para fins de layout, mas o seu teste continua encontrando o elemento através da tag de dados.
+
+Aqui está a versão otimizada para o Cypress:
+
+HTML com Seletores de Teste (data-test)
+HTML -->
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QA Sandbox - Login</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #282a36;
+        color: #f8f8f2;
+      }
+      .card {
+        background: #44475a;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        width: 320px;
+      }
+      h3 {
+        margin-top: 0;
+        color: #bd93f9;
+        text-align: center;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #6272a4;
+        border-radius: 5px;
+        background: #282a36;
+        color: #f8f8f2;
+        box-sizing: border-box;
+      }
+      input:focus {
+        outline: 2px solid #ff79c6;
+        border: none;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: #50fa7b;
+        color: #282a36;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+      button:hover {
+        background-color: #40c060;
+        transform: scale(1.02);
+      }
+      #message {
+        margin-top: 20px;
+        text-align: center;
+        font-weight: bold;
+        min-height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h3>QA Sandbox</h3>
+      <form id="loginForm">
+        <label for="username">Usuário</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="User: admin"
+          required
+          data-test="username"
+        />
+
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="••••••••"
+          required
+          data-test="password"
+        />
+
+        <button type="submit" id="btn-entrar" data-test="submit-button">
+          Acessar Sistema
+        </button>
+      </form>
+      <div id="message" data-test="message-display"></div>
+    </div>
+
+    <script>
+      document
+        .getElementById('loginForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+          const user = document.getElementById('username').value;
+          const msg = document.getElementById('message');
+
+          if (user === 'admin') {
+            msg.textContent = 'Acesso Permitido!';
+            msg.style.color = '#50fa7b';
+          } else {
+            msg.textContent = 'Acesso Negado.';
+            msg.style.color = '#ff5555';
+          }
+        });
+    </script>
+  </body>
+</html>
+<!-- Exemplo de Script no Cypress
+Com esses atributos, o seu código de teste no Cypress ficaria muito mais "limpo" e resiliente:
+
+JavaScript
+describe('Cenário de Teste: Login', () => {
+  it('Deve exibir mensagem de sucesso ao logar como admin', () => {
+    cy.visit('caminho/do/seu/arquivo.html')
+    
+    // Usando os data-attributes para selecionar os elementos
+    cy.get('[data-test="username"]').type('admin')
+    cy.get('[data-test="password"]').type('123456')
+    cy.get('[data-test="submit-button"]').click()
+
+    // Asserção
+    cy.get('[data-test="message-display"]')
+      .should('be.visible')
+      .and('contain', 'Acesso Permitido!')
+  })
+}) -->
