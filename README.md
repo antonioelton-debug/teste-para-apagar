@@ -8,5 +8,3 @@ Segunda alteração nova
 Mais uma alteração para teste
 
 Teste de conflito Remoto
-
-Teste de exclusão de Commit
