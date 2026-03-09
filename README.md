@@ -11,4 +11,4 @@ Teste de conflito Remoto
 
 Nosso **primeiro exemplo** de trecho de texto no Markdown
 
-aqui tem uma [página de teste] (https://www.google.com/))
+aqui tem uma [página de teste] (https://www.google.com/)
